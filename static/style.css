@@ -1,0 +1,16 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: block!important;
+    width: 50%!important;
+}
+
+.table {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
