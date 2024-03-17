@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en-us">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
-    <title>{{ titulo }}</title>
+    <title>{{ title }}</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>{{ titulo }}</h1>
+        <h1>{{ title }}</h1>
         <table class="table table-bordered table-responsive table-striped">
             <thead class="thead-default">
                 <tr>
-                    <th>Alimento</th>
-                    <th>Quantidade</th>
+                    <th>Stock</th>
+                    <th>Amount</th>
                 </tr>
             </thead>
             <tbody>
-                {% for alimento in alimentos %}
+                {% for stock in stocks %}
                 <tr>
-                    <td>{{ alimento.nome }}</td>
-                    <td>{{ alimento.quantidade }}</td>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.amount }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <a href="{{ url_for('new') }}">
-            <button class="btn btn-primary btn-salvar">Cadastrar alimento</button>
+            <button class="btn btn-primary btn-salvar">Add Stock</button>
         </a>
     </div>
 </body>

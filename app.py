@@ -1,10 +1,16 @@
-from flask import Flask, render_template, url_for, redirect, request, flash, session
+from flask import (
+    Flask,
+    render_template,
+    url_for,
+    redirect,
+    request,
+)
 
 
 class Stock:
     def __init__(self, name, amount):
         self.name = name
-        self.amout = amount
+        self.amount = amount
 
 
 stocks = []
@@ -15,25 +21,25 @@ app.secret_key = '09UD A_DS09Sj)(i*&&)'
 
 @app.route('/')
 def index():
-    return render_template('index.html', titulo='Portfolio', stocks=stocks)
+    return render_template('index.html', title='Portfolio', stocks=stocks)
 
 
 @app.route('/new')
-def novo():
-    return render_template('new.html', titulo='New Stock')
+def new():
+    return render_template('new.html', title='New Stock')
 
 
 @app.route(
-    '/criar',
+    '/create',
     methods=[
         'POST',
     ],
 )
-def criar():
-    nome = request.form['nome']
-    quantidade = request.form['quantidade']
-    alimento = Alimento(nome, quantidade)
-    alimentos.append(alimento)
+def create():
+    name = request.form['name']
+    amount = request.form['amount']
+    stock = Stock(name, amount)
+    stocks.append(stock)
     return redirect(url_for('index'))
 
 
